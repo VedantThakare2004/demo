@@ -1,0 +1,479 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Header for Enspire Poster */
+/* Enspire Background with Live Graphics Animation */
+/* Enspire Background */
+/* Enspire Background */
+header {
+    background: url("enspire.jpg") no-repeat center center;
+    background-size: contain; /* Ensures the image covers the entire area */
+    height: 100vh; /* Full viewport height */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 1;
+    overflow: hidden; /* Ensures overflow is hidden */
+}
+
+/* Gradient Animation Overlay */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(128, 0, 128, 0.4), rgba(0, 209, 209, 0.4));
+    z-index: 1;
+    animation: moveGradient 8s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+/* Celebration particles */
+.celebration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* On top of the gradient */
+    pointer-events: none; /* Not interactive */
+}
+
+.particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: particleMove 8s linear infinite;
+    opacity: 0.7;
+}
+
+/* Animation for particles */
+@keyframes particleMove {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(calc(100vw * (random() - 0.5)));
+        opacity: 0;
+    }
+}
+
+/* Adjust particle colors */
+.particle:nth-child(odd) {
+    background-color: rgba(238, 130, 238, 0.8); /* Light purple */
+}
+.particle:nth-child(even) {
+    background-color: rgba(72, 209, 204, 0.8); /* Aqua */
+}
+
+/* Tagline Styling */
+header h1 {
+    color: #fff;
+    font-size: 3rem;
+    z-index: 3;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    font-family: 'Trebuchet MS', sans-serif;
+    background: linear-gradient(45deg, purple, aqua);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Keyframes for gradient movement */
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+
+
+/* Container for Cards Section with Animated Background */
+.cards-container {
+    position: relative;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    z-index: 1;
+    background-color: #1a1a1a;
+    overflow: hidden;
+}
+
+/* Horizontal Circular Moving Animation */
+.cards-bg {
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(128, 0, 128, 0.6), rgba(0, 209, 209, 0.6));
+    animation: horizontalMove 12s linear infinite;
+    z-index: 0;
+}
+
+@keyframes horizontalMove {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(50%);
+    }
+}
+
+/* Styling for the Event Cards */
+.card {
+    background-color: #1f1f1f;
+    width: 300px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.card h3 {
+    color: #00d1d1;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* Border Animation */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 4px solid transparent;
+    background: linear-gradient(45deg, purple, aqua);
+    background-size: 300% 300%;
+    animation: moveBorder 6s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* New Text Section Below the Cards */
+.event-description {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.event-description p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Social Media Instagram Icon */
+.social {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.social a {
+    font-size: 30px;
+    color: #29c4ba;
+    margin: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.social a:hover {
+    transform: rotate(360deg);
+}
+
+footer {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Broad Header Section */
+/* Broad Header Section */
+/* Broad Header Section */
+/* Broad Header Section */
+/* Broad Header Section */
+.header-bar {
+    background-color: #222; /* Dark theme background */
+    padding: 10px 0; /* Slightly reduced padding */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+}
+
+/* Tagline with Gradient */
+.header-bar h1 {
+    margin: 0;
+    padding: 0 10px; /* Reduced padding for the tagline */
+    flex-grow: 1;
+    text-align: center;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d); /* Gradient color */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes the gradient apply to text */
+    font-size: 1.4rem; /* Adjusted for desktop view */
+    white-space: normal; /* Allow text wrapping */
+    line-height: 1.2; /* Increase line height for readability */
+}
+
+/* Logo Styling */
+.header-bar .logo {
+    width: 40px; /* Adjusted size for better fit */
+    height: 40px;
+}
+
+.header-bar .logo-left {
+    margin-left: 10px;
+}
+
+.header-bar .logo-right {
+    margin-right: 10px;
+}
+
+/* Mobile view - Responsive */
+@media (max-width: 768px) {
+    .header-bar {
+        padding: 5px 0; /* Further reduced padding for mobile view */
+        height: auto; /* Dynamic height based on content */
+    }
+
+    .header-bar h1 {
+        font-size: 1rem; /* Further reduce font size for mobile */
+        padding: 0 5px; /* Reduced padding for tagline in mobile view */
+    }
+
+    .header-bar .logo {
+        width: 30px; /* Smaller logo for mobile */
+        height: 30px;
+    }
+}
+
+
+
+
+/* Styling for the Google Form Button */
+.card button {
+    background-color: #00d1d1; /* Matching theme color */
+    color: #1a1a1a; /* Dark text for contrast */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #008b8b; /* Darker color on hover */
+    transform: scale(1.1); /* Slight scale effect on hover */
+}
+
+
+/* Responsive Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+    .header-bar {
+        font-size: 1.4rem;
+        padding: 15px 0;
+    }
+
+    .header-bar .logo-left, .header-bar .logo-right {
+        height: 50px;
+        width: 50px;
+    }
+
+    .header-bar h1 {
+        font-size: 1.5rem;
+    }
+}
+/* Style for the card buttons */
+.card-btn {
+    background-color: #00d1d1;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card-btn:hover {
+    background-color: #00a5a5;
+}
+
+/* Ensure links don’t have default styling */
+a {
+    text-decoration: none;
+}
+
+/* Navigation Bar Styling */
+/* Navigation Bar Styling */
+.nav-bar {
+    margin-top: 15px;
+}
+
+.nav-bar ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-bar ul li {
+    margin: 0 20px;
+}
+
+.nav-bar ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff; /* White text color */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, purple, aqua); /* Gradient background for the nav item */
+    border-radius: 50px; /* Ellipse shape */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.nav-bar ul li a:hover {
+    background: linear-gradient(45deg, aqua, purple); /* Reverse gradient on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Ensure the header bar remains readable */
+.header-bar {
+    padding: 10px 0; /* Adjust padding to make it smaller */
+    background-color: #000000; /* Dark color theme for the header background */
+}
+
+.header-bar h1 {
+    background: linear-gradient(to right, #ff512f, #dd2476); /* Gradient color for tagline */
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 1.8rem;
+}
+
+/* Responsive Adjustments for Mobile View */
+@media (max-width: 768px) {
+    .nav-bar ul li {
+        margin: 0 10px;
+    }
+    
+    .nav-bar ul li a {
+        font-size: 1rem;
+        padding: 8px 16px; /* Slightly reduce padding for mobile */
+    }
+    
+    .header-bar h1 {
+        font-size: 1.4rem; /* Reduce tagline font size for mobile */
+    }
+}
+/* Footer styles */
+footer {
+    background-color: #000000; /* Dark background color */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  footer p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  footer span {
+    font-weight: bold;
+    color: #00d1d1; /* Optional: Make the team name stand out */
+  }
+  
+  /* Responsive styling for mobile view */
+  @media (max-width: 768px) {
+    footer p {
+      font-size: 1rem;
+    }
+  }
+  
